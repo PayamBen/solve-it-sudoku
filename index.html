@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+ 
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <title>Solve-it Suduko</title>
+   <style>
+	h1 {
+		text-align: center;
+	}
+	#container {
+		width: 100%;
+	}
+	#main {
+		width: 400px;
+		margin: auto;
+	}
+	table {
+		border: solid 1px;
+		width: 400px;
+	}
+	table table {
+		margin: 0;
+		width: 100%;
+	}
+	td {
+		border: solid 1px;
+		width: 10%;
+		text-align: center;
+	}
+	.button {
+		background-color: #236578;
+		padding: 5px;
+		line-height: 40px;
+		cursor: pointer;
+	}
+	.button:hover {
+		background-color: #235578;
+	}
+   </style>
+</head>
+<body>
+	<h1>Solve-it Suduko</h1>
+	<div id="container">
+	<div id="main">
+	<table>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td contenteditable=true id="1"></td>
+						<td contenteditable=true id="2">9</td>
+						<td contenteditable=true id="3"></td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="10">1</td>
+						<td contenteditable=true id="11"></td>
+						<td contenteditable=true id="12">8</td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="19"></td>
+						<td contenteditable=true id="20"></td>
+						<td contenteditable=true id="21"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td contenteditable=true id="4">1</td>
+						<td contenteditable=true id="5"></td>
+						<td contenteditable=true id="6">5</td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="13">7</td>
+						<td contenteditable=true id="14"></td>
+						<td contenteditable=true id="15">3</td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="22"></td>
+						<td contenteditable=true id="23"></td>
+						<td contenteditable=true id="24"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td contenteditable=true id="7"></td>
+						<td contenteditable=true id="8">2</td>
+						<td contenteditable=true id="9"></td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="16">4</td>
+						<td contenteditable=true id="17"></td>
+						<td contenteditable=true id="18">9</td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="25"></td>
+						<td contenteditable=true id="26"></td>
+						<td contenteditable=true id="27"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td contenteditable=true id="28"></td>
+						<td contenteditable=true id="29"></td>
+						<td contenteditable=true id="30">5</td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="37"></td>
+						<td contenteditable=true id="38">7</td>
+						<td contenteditable=true id="39"></td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="46"></td>
+						<td contenteditable=true id="47"></td>
+						<td contenteditable=true id="48">1</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td contenteditable=true id="31"></td>
+						<td contenteditable=true id="32">6</td>
+						<td contenteditable=true id="33"></td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="40"></td>
+						<td contenteditable=true id="41"></td>
+						<td contenteditable=true id="42"></td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="49"></td>
+						<td contenteditable=true id="50">4</td>
+						<td contenteditable=true id="51"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td contenteditable=true id="34">7</td>
+						<td contenteditable=true id="35"></td>
+						<td contenteditable=true id="36"></td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="43"></td>
+						<td contenteditable=true id="44">4</td>
+						<td contenteditable=true id="45"></td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="52">9</td>
+						<td contenteditable=true id="53"></td>
+						<td contenteditable=true id="54"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td contenteditable=true id="55"></td>
+						<td contenteditable=true id="56"></td>
+						<td contenteditable=true id="57"></td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="64">9</td>
+						<td contenteditable=true id="65"></td>
+						<td contenteditable=true id="66">3</td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="73"></td>
+						<td contenteditable=true id="74">2</td>
+						<td contenteditable=true id="75"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td contenteditable=true id="58"></td>
+						<td contenteditable=true id="59"></td>
+						<td contenteditable=true id="60"></td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="67">2</td>
+						<td contenteditable=true id="68"></td>
+						<td contenteditable=true id="69">4</td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="76">5</td>
+						<td contenteditable=true id="77"></td>
+						<td contenteditable=true id="78">9</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td contenteditable=true id="61"></td>
+						<td contenteditable=true id="62"></td>
+						<td contenteditable=true id="63"></td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="70">5</td>
+						<td contenteditable=true id="71"></td>
+						<td contenteditable=true id="72">1</td>
+					</tr>
+					<tr>
+						<td contenteditable=true id="79"></td>
+						<td contenteditable=true id="80">7</td>
+						<td contenteditable=true id="81"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<a class="button" id="solveit">Solve It!</a>
+	</div>
+	</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="sudko-solver.js"></script> 
+
+   
+</body>
+</html>
