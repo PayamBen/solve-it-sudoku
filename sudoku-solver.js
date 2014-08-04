@@ -104,6 +104,7 @@ function updateDisplay(grid) {
 
 $(function() {
 	$('#solveit').click(function() {
+		console.log('start');
 		var grid = makeArray();
 		solve(grid, 0);
 		
