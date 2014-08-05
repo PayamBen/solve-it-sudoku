@@ -40,6 +40,7 @@ function solve(grid, position)
 	if( position > 80 ) {
 		// Solution found
 		updateDisplay(grid);
+		logPrint(grid);
 	    return
 	}
 	// If the cell is not empty, continue with the next cell
@@ -68,7 +69,7 @@ function makeArray() {
 	var grid = new Array;
 	for(var i = 1; i <= 81; ++i)
 	{
-		if($('#' + i).html() == "<br>")
+		if($('#' + i).html() == "<br>" || $('#' + i).html() == "")
 		{
 			grid[i - 1] = 0;
 		}else
@@ -104,10 +105,12 @@ function updateDisplay(grid) {
 
 $(function() {
 	$('#solveit').click(function() {
-		console.log('start');
+		console.log('start');	
 		var grid = makeArray();
+		console.log('made array');
+		logPrint(grid);
 		solve(grid, 0);
-		
+		console.log('finished');
 	});//end click
 	
 });//end ready
