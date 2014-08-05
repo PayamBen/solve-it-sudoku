@@ -90,7 +90,6 @@ function logPrint(grid) {
 			output += ",";
 		}
 		console.log(output);
-		//co << "\n";
 		if(a == 27 || a == 54) {
 			console.log("-----------------\n");
 		}
@@ -113,4 +112,18 @@ $(function() {
 		console.log('finished');
 	});//end click
 	
+	$('.sd').click(function() {
+		var num = parseInt($('.selected').text());
+		$(this).text(num);
+	});//end click
+	
+	$('.num').click(function() {
+		if ($(this).text() == $('.selected').text()) {
+			return
+		} else
+		{
+			$('.selected').removeClass('selected');
+			$(this).addClass('selected');
+		}
+	});// end click
 });//end ready

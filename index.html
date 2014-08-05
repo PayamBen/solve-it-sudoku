@@ -27,6 +27,7 @@
 		border: solid 1px;
 		width: 10%;
 		text-align: center;
+		height: 23px;
 	}
 	.button {
 		background-color: #236578;
@@ -38,12 +39,15 @@
 		background-color: #235578;
 	}
 	
-	[contenteditable="true"] {
-        -webkit-user-select: auto !important;
-        user-select: auto !important;  
-  }
-	li {
-		list-style: none;
+	.num {
+		background-color: #125698;
+		padding: 4px 9px;
+		margin-right: 5px;
+		line-height: 40px;
+		cursor: pointer;
+	}
+	.selected {
+		background-color: #995698;
 	}
    </style>
 </head>
@@ -56,116 +60,57 @@
 			<td>
 				<table>
 					<tr>
-						<td><li contenteditable="true" id="1"></li></td>
-						<td contenteditable="true" id="2">9</td>
-						<td contenteditable="true" id="3"></td>
+						<td class="sd" id="1"></td>
+						<td class="sd" id="2">9</td>
+						<td class="sd" id="3"></td>
 					</tr>
 					<tr>
-						<td contenteditable="true" id="10">1</td>
-						<td contenteditable="true" id="11"></td>
-						<td contenteditable="true" id="12">8</td>
+						<td class="sd" id="10">1</td>
+						<td class="sd" id="11"></td>
+						<td class="sd" id="12">8</td>
 					</tr>
 					<tr>
-						<td contenteditable="true" id="19"></td>
-						<td contenteditable="true" id="20"></td>
-						<td contenteditable="true" id="21"></td>
-					</tr>
-				</table>
-			</td>
-			<td>
-				<table>
-					<tr>
-						<td contenteditable="true" id="4">1</td>
-						<td contenteditable="true" id="5"></td>
-						<td contenteditable="true" id="6">5</td>
-					</tr>
-					<tr>
-						<td contenteditable="true" id="13">7</td>
-						<td contenteditable="true" id="14"></td>
-						<td contenteditable="true" id="15">3</td>
-					</tr>
-					<tr>
-						<td contenteditable="true" id="22"></td>
-						<td contenteditable="true" id="23"></td>
-						<td contenteditable="true" id="24"></td>
+						<td class="sd" id="19"></td>
+						<td class="sd" id="20"></td>
+						<td class="sd" id="21"></td>
 					</tr>
 				</table>
 			</td>
 			<td>
 				<table>
 					<tr>
-						<td contenteditable="true" id="7"></td>
-						<td contenteditable="true" id="8">2</td>
-						<td contenteditable="true" id="9"></td>
+						<td class="sd" id="4">1</td>
+						<td class="sd" id="5"></td>
+						<td class="sd" id="6">5</td>
 					</tr>
 					<tr>
-						<td contenteditable="true" id="16">4</td>
-						<td contenteditable="true" id="17"></td>
-						<td contenteditable="true" id="18">9</td>
+						<td class="sd" id="13">7</td>
+						<td class="sd" id="14"></td>
+						<td class="sd" id="15">3</td>
 					</tr>
 					<tr>
-						<td contenteditable="true" id="25"></td>
-						<td contenteditable="true" id="26"></td>
-						<td contenteditable="true" id="27"></td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<table>
-					<tr>
-						<td contenteditable="true" id="28"></td>
-						<td contenteditable="true" id="29"></td>
-						<td contenteditable="true" id="30">5</td>
-					</tr>
-					<tr>
-						<td contenteditable="true" id="37"></td>
-						<td contenteditable="true" id="38">7</td>
-						<td contenteditable="true" id="39"></td>
-					</tr>
-					<tr>
-						<td contenteditable="true" id="46"></td>
-						<td contenteditable="true" id="47"></td>
-						<td contenteditable="true" id="48">1</td>
+						<td class="sd" id="22"></td>
+						<td class="sd" id="23"></td>
+						<td class="sd" id="24"></td>
 					</tr>
 				</table>
 			</td>
 			<td>
 				<table>
 					<tr>
-						<td contenteditable="true" id="31"></td>
-						<td contenteditable="true" id="32">6</td>
-						<td contenteditable="true" id="33"></td>
+						<td class="sd" id="7"></td>
+						<td class="sd" id="8">2</td>
+						<td class="sd" id="9"></td>
 					</tr>
 					<tr>
-						<td contenteditable="true" id="40"></td>
-						<td contenteditable="true" id="41"></td>
-						<td contenteditable="true" id="42"></td>
+						<td class="sd" id="16">4</td>
+						<td class="sd" id="17"></td>
+						<td class="sd" id="18">9</td>
 					</tr>
 					<tr>
-						<td contenteditable="true" id="49"></td>
-						<td contenteditable="true" id="50">4</td>
-						<td contenteditable="true" id="51"></td>
-					</tr>
-				</table>
-			</td>
-			<td>
-				<table>
-					<tr>
-						<td contenteditable="true" id="34">7</td>
-						<td contenteditable="true" id="35"></td>
-						<td contenteditable="true" id="36"></td>
-					</tr>
-					<tr>
-						<td contenteditable="true" id="43"></td>
-						<td contenteditable="true" id="44">4</td>
-						<td contenteditable="true" id="45"></td>
-					</tr>
-					<tr>
-						<td contenteditable="true" id="52">9</td>
-						<td contenteditable="true" id="53"></td>
-						<td contenteditable="true" id="54"></td>
+						<td class="sd" id="25"></td>
+						<td class="sd" id="26"></td>
+						<td class="sd" id="27"></td>
 					</tr>
 				</table>
 			</td>
@@ -174,62 +119,125 @@
 			<td>
 				<table>
 					<tr>
-						<td contenteditable="true" id="55"></td>
-						<td contenteditable="true" id="56"></td>
-						<td contenteditable="true" id="57"></td>
+						<td class="sd" id="28"></td>
+						<td class="sd" id="29"></td>
+						<td class="sd" id="30">5</td>
 					</tr>
 					<tr>
-						<td contenteditable="true" id="64">9</td>
-						<td contenteditable="true" id="65"></td>
-						<td contenteditable="true" id="66">3</td>
+						<td class="sd" id="37"></td>
+						<td class="sd" id="38">7</td>
+						<td class="sd" id="39"></td>
 					</tr>
 					<tr>
-						<td contenteditable="true" id="73"></td>
-						<td contenteditable="true" id="74">2</td>
-						<td contenteditable="true" id="75"></td>
-					</tr>
-				</table>
-			</td>
-			<td>
-				<table>
-					<tr>
-						<td contenteditable="true" id="58"></td>
-						<td contenteditable="true" id="59"></td>
-						<td contenteditable="true" id="60"></td>
-					</tr>
-					<tr>
-						<td contenteditable="true" id="67">2</td>
-						<td contenteditable="true" id="68"></td>
-						<td contenteditable="true" id="69">4</td>
-					</tr>
-					<tr>
-						<td contenteditable="true" id="76">5</td>
-						<td contenteditable="true" id="77"></td>
-						<td contenteditable="true" id="78">9</td>
+						<td class="sd" id="46"></td>
+						<td class="sd" id="47"></td>
+						<td class="sd" id="48">1</td>
 					</tr>
 				</table>
 			</td>
 			<td>
 				<table>
 					<tr>
-						<td contenteditable="true" id="61"></td>
-						<td contenteditable="true" id="62"></td>
-						<td contenteditable="true" id="63"></td>
+						<td class="sd" id="31"></td>
+						<td class="sd" id="32">6</td>
+						<td class="sd" id="33"></td>
 					</tr>
 					<tr>
-						<td contenteditable="true" id="70">5</td>
-						<td contenteditable="true" id="71"></td>
-						<td contenteditable="true" id="72">1</td>
+						<td class="sd" id="40"></td>
+						<td class="sd" id="41"></td>
+						<td class="sd" id="42"></td>
 					</tr>
 					<tr>
-						<td contenteditable="true" id="79"></td>
-						<td contenteditable="true" id="80">7</td>
-						<td contenteditable="true" id="81"></td>
+						<td class="sd" id="49"></td>
+						<td class="sd" id="50">4</td>
+						<td class="sd" id="51"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td class="sd" id="34">7</td>
+						<td class="sd" id="35"></td>
+						<td class="sd" id="36"></td>
+					</tr>
+					<tr>
+						<td class="sd" id="43"></td>
+						<td class="sd" id="44">4</td>
+						<td class="sd" id="45"></td>
+					</tr>
+					<tr>
+						<td class="sd" id="52">9</td>
+						<td class="sd" id="53"></td>
+						<td class="sd" id="54"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td class="sd" id="55"></td>
+						<td class="sd" id="56"></td>
+						<td class="sd" id="57"></td>
+					</tr>
+					<tr>
+						<td class="sd" id="64">9</td>
+						<td class="sd" id="65"></td>
+						<td class="sd" id="66">3</td>
+					</tr>
+					<tr>
+						<td class="sd" id="73"></td>
+						<td class="sd" id="74">2</td>
+						<td class="sd" id="75"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td class="sd" id="58"></td>
+						<td class="sd" id="59"></td>
+						<td class="sd" id="60"></td>
+					</tr>
+					<tr>
+						<td class="sd" id="67">2</td>
+						<td class="sd" id="68"></td>
+						<td class="sd" id="69">4</td>
+					</tr>
+					<tr>
+						<td class="sd" id="76">5</td>
+						<td class="sd" id="77"></td>
+						<td class="sd" id="78">9</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td class="sd" id="61"></td>
+						<td class="sd" id="62"></td>
+						<td class="sd" id="63"></td>
+					</tr>
+					<tr>
+						<td class="sd" id="70">5</td>
+						<td class="sd" id="71"></td>
+						<td class="sd" id="72">1</td>
+					</tr>
+					<tr>
+						<td class="sd" id="79"></td>
+						<td class="sd" id="80">7</td>
+						<td class="sd" id="81"></td>
 					</tr>
 				</table>
 			</td>
 		</tr>
 	</table>
+	<a class="num selected">1</a><a class="num">2</a><a class="num">3</a>
+	<a class="num">4</a><a class="num">5</a><a class="num">6</a>
+	<a class="num">7</a><a class="num">8</a><a class="num">9</a>
+	<br/>
 	<a class="button" id="solveit">Solve It!</a>
 	</div>
 	</div>
