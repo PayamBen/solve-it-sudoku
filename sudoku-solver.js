@@ -69,7 +69,7 @@ function makeArray() {
 	var grid = new Array;
 	for(var i = 1; i <= 81; ++i)
 	{
-		if($('#' + i).html() == "<br>" || $('#' + i).html() == "")
+		if($('#' + i).text() == "") 
 		{
 			grid[i - 1] = 0;
 		}else
