@@ -10,6 +10,8 @@
 	}
 	h1 {
 		text-align: center;
+		margin: 2px 0;
+		
 	}
 	.first {
 		margin-left:3px;
@@ -24,10 +26,16 @@
 	table {
 		border: solid 1px;
 		width: 320px;
+		border-collapse: collapse;
 	}
 	table table {
 		margin: 0;
 		width: 100%;
+		border: none;
+	}
+	
+	table table {
+		border-collapse: collapse;
 	}
 	td {
 		border: solid 1px;
@@ -36,23 +44,25 @@
 		height: 23px;
 	}
 	.button {
-		background-color: #236578;
-		padding: 5px 2px;
+		background-color: #339966;
+		padding: 5px 20px;
 		line-height: 40px;
 		cursor: pointer;
 		margin-right:3px;
-		font-size: 13px;
+		font-size: 15px;
+		font-weight: 600;
 	}
 	.button:hover {
 		background-color: #235578;
 	}
 	
 	.num {
-		background-color: #125698;
-		padding: 4px 7px;
+		background-color: #eee;
+		padding: 4px 6px;
 		margin-right: 5px;
 		line-height: 40px;
 		cursor: pointer;
+		border: solid 1px;
 	}
 	.selected {
 		background-color: #995698;
@@ -68,7 +78,7 @@
 		background-color: #eee;
 	}
 	.largeButton {
-		padding: 5px 100px;
+		padding: 5px 65px;
 	}
 	.hidden {
 		display: none;
@@ -79,7 +89,7 @@
 	}
 	
    </style>
-</head>b
+</head>
 <body>
 	<h1>Solve-it Sudoku <span id="proNum"></span></h1>
 	<div id="container">
@@ -267,11 +277,11 @@
 	<a class="num">4</a><a class="num">5</a><a class="num">6</a>
 	<a class="num">7</a><a class="num">8</a><a class="num">9</a><a class="num">&nbsp;</a>
 	<br/>
-	<a class="button first" id="check">Check</a><a class="button" id="solveit">Solve It!</a><a class="button" id="newPuzzle">Random Puzzle</a><a class="button" id="inputPuzzle">Input Puzzle</a><a class="button hidden danger" id="clear">Clear Grid</a>
+	<a class="button first" id="check">Check Answers</a><a class="button" id="solveit">Solve Puzzle</a><br/><a class="button first" id="newPuzzle">Random Puzzle </a><a class="button" id="inputPuzzle">Input Puzzle</a><a class="button hidden danger" id="clear">Clear Grid</a>
 	</div>
 	</div>
 <script src="jquery-2.1.1.min.js"></script>
-<script src="sudoku-solver.js"></script> 
+<script src="sudoku.js"></script> 
 
    
 </body>
