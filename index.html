@@ -5,8 +5,14 @@
    <meta charset="utf-8">
    <title>Solve-it Sudoku</title>
    <style>
+	body {
+		margin:0;
+	}
 	h1 {
 		text-align: center;
+	}
+	.first {
+		margin-left:3px;
 	}
 	#container {
 		width: 100%;
@@ -31,9 +37,11 @@
 	}
 	.button {
 		background-color: #236578;
-		padding: 5px;
+		padding: 5px 2px;
 		line-height: 40px;
 		cursor: pointer;
+		margin-right:3px;
+		font-size: 13px;
 	}
 	.button:hover {
 		background-color: #235578;
@@ -41,7 +49,7 @@
 	
 	.num {
 		background-color: #125698;
-		padding: 4px 9px;
+		padding: 4px 7px;
 		margin-right: 5px;
 		line-height: 40px;
 		cursor: pointer;
@@ -49,10 +57,31 @@
 	.selected {
 		background-color: #995698;
 	}
+	
+	.wrongAnswer {
+		border-color: red;
+	}
+	
+	.untxtBox {
+		font-family: serif;
+		font-style: oblique;
+		background-color: #eee;
+	}
+	.largeButton {
+		padding: 5px 100px;
+	}
+	.hidden {
+		display: none;
+	}
+	.danger {
+		background-color: red;
+		
+	}
+	
    </style>
-</head>
+</head>b
 <body>
-	<h1>Solve-it Sudoku</h1>
+	<h1>Solve-it Sudoku <span id="proNum"></span></h1>
 	<div id="container">
 	<div id="main">
 	<table>
@@ -60,116 +89,57 @@
 			<td>
 				<table>
 					<tr>
-						<td class="sd" id="1"></td>
-						<td class="sd" id="2">9</td>
-						<td class="sd" id="3"></td>
+						<td class="txtBox" id="1"></td>
+						<td class="txtBox" id="2"></td>
+						<td class="txtBox" id="3"></td>
 					</tr>
 					<tr>
-						<td class="sd" id="10">1</td>
-						<td class="sd" id="11"></td>
-						<td class="sd" id="12">8</td>
+						<td class="txtBox" id="10"></td>
+						<td class="txtBox" id="11"></td>
+						<td class="txtBox" id="12"></td>
 					</tr>
 					<tr>
-						<td class="sd" id="19"></td>
-						<td class="sd" id="20"></td>
-						<td class="sd" id="21"></td>
-					</tr>
-				</table>
-			</td>
-			<td>
-				<table>
-					<tr>
-						<td class="sd" id="4">1</td>
-						<td class="sd" id="5"></td>
-						<td class="sd" id="6">5</td>
-					</tr>
-					<tr>
-						<td class="sd" id="13">7</td>
-						<td class="sd" id="14"></td>
-						<td class="sd" id="15">3</td>
-					</tr>
-					<tr>
-						<td class="sd" id="22"></td>
-						<td class="sd" id="23"></td>
-						<td class="sd" id="24"></td>
+						<td class="txtBox" id="19"></td>
+						<td class="txtBox" id="20"></td>
+						<td class="txtBox" id="21"></td>
 					</tr>
 				</table>
 			</td>
 			<td>
 				<table>
 					<tr>
-						<td class="sd" id="7"></td>
-						<td class="sd" id="8">2</td>
-						<td class="sd" id="9"></td>
+						<td class="txtBox" id="4"></td>
+						<td class="txtBox" id="5"></td>
+						<td class="txtBox" id="6"></td>
 					</tr>
 					<tr>
-						<td class="sd" id="16">4</td>
-						<td class="sd" id="17"></td>
-						<td class="sd" id="18">9</td>
+						<td class="txtBox" id="13"></td>
+						<td class="txtBox" id="14"></td>
+						<td class="txtBox" id="15"></td>
 					</tr>
 					<tr>
-						<td class="sd" id="25"></td>
-						<td class="sd" id="26"></td>
-						<td class="sd" id="27"></td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<table>
-					<tr>
-						<td class="sd" id="28"></td>
-						<td class="sd" id="29"></td>
-						<td class="sd" id="30">5</td>
-					</tr>
-					<tr>
-						<td class="sd" id="37"></td>
-						<td class="sd" id="38">7</td>
-						<td class="sd" id="39"></td>
-					</tr>
-					<tr>
-						<td class="sd" id="46"></td>
-						<td class="sd" id="47"></td>
-						<td class="sd" id="48">1</td>
+						<td class="txtBox" id="22"></td>
+						<td class="txtBox" id="23"></td>
+						<td class="txtBox" id="24"></td>
 					</tr>
 				</table>
 			</td>
 			<td>
 				<table>
 					<tr>
-						<td class="sd" id="31"></td>
-						<td class="sd" id="32">6</td>
-						<td class="sd" id="33"></td>
+						<td class="txtBox" id="7"></td>
+						<td class="txtBox" id="8"></td>
+						<td class="txtBox" id="9"></td>
 					</tr>
 					<tr>
-						<td class="sd" id="40"></td>
-						<td class="sd" id="41"></td>
-						<td class="sd" id="42"></td>
+						<td class="txtBox" id="16"></td>
+						<td class="txtBox" id="17"></td>
+						<td class="txtBox" id="18"></td>
 					</tr>
 					<tr>
-						<td class="sd" id="49"></td>
-						<td class="sd" id="50">4</td>
-						<td class="sd" id="51"></td>
-					</tr>
-				</table>
-			</td>
-			<td>
-				<table>
-					<tr>
-						<td class="sd" id="34">7</td>
-						<td class="sd" id="35"></td>
-						<td class="sd" id="36"></td>
-					</tr>
-					<tr>
-						<td class="sd" id="43"></td>
-						<td class="sd" id="44">4</td>
-						<td class="sd" id="45"></td>
-					</tr>
-					<tr>
-						<td class="sd" id="52">9</td>
-						<td class="sd" id="53"></td>
-						<td class="sd" id="54"></td>
+						<td class="txtBox" id="25"></td>
+						<td class="txtBox" id="26"></td>
+						<td class="txtBox" id="27"></td>
 					</tr>
 				</table>
 			</td>
@@ -178,67 +148,126 @@
 			<td>
 				<table>
 					<tr>
-						<td class="sd" id="55"></td>
-						<td class="sd" id="56"></td>
-						<td class="sd" id="57"></td>
+						<td class="txtBox" id="28"></td>
+						<td class="txtBox" id="29"></td>
+						<td class="txtBox" id="30"></td>
 					</tr>
 					<tr>
-						<td class="sd" id="64">9</td>
-						<td class="sd" id="65"></td>
-						<td class="sd" id="66">3</td>
+						<td class="txtBox" id="37"></td>
+						<td class="txtBox" id="38"></td>
+						<td class="txtBox" id="39"></td>
 					</tr>
 					<tr>
-						<td class="sd" id="73"></td>
-						<td class="sd" id="74">2</td>
-						<td class="sd" id="75"></td>
-					</tr>
-				</table>
-			</td>
-			<td>
-				<table>
-					<tr>
-						<td class="sd" id="58"></td>
-						<td class="sd" id="59"></td>
-						<td class="sd" id="60"></td>
-					</tr>
-					<tr>
-						<td class="sd" id="67">2</td>
-						<td class="sd" id="68"></td>
-						<td class="sd" id="69">4</td>
-					</tr>
-					<tr>
-						<td class="sd" id="76">5</td>
-						<td class="sd" id="77"></td>
-						<td class="sd" id="78">9</td>
+						<td class="txtBox" id="46"></td>
+						<td class="txtBox" id="47"></td>
+						<td class="txtBox" id="48"></td>
 					</tr>
 				</table>
 			</td>
 			<td>
 				<table>
 					<tr>
-						<td class="sd" id="61"></td>
-						<td class="sd" id="62"></td>
-						<td class="sd" id="63"></td>
+						<td class="txtBox" id="31"></td>
+						<td class="txtBox" id="32"></td>
+						<td class="txtBox" id="33"></td>
 					</tr>
 					<tr>
-						<td class="sd" id="70">5</td>
-						<td class="sd" id="71"></td>
-						<td class="sd" id="72">1</td>
+						<td class="txtBox" id="40"></td>
+						<td class="txtBox" id="41"></td>
+						<td class="txtBox" id="42"></td>
 					</tr>
 					<tr>
-						<td class="sd" id="79"></td>
-						<td class="sd" id="80">7</td>
-						<td class="sd" id="81"></td>
+						<td class="txtBox" id="49"></td>
+						<td class="txtBox" id="50"></td>
+						<td class="txtBox" id="51"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td class="txtBox" id="34"></td>
+						<td class="txtBox" id="35"></td>
+						<td class="txtBox" id="36"></td>
+					</tr>
+					<tr>
+						<td class="txtBox" id="43"></td>
+						<td class="txtBox" id="44"></td>
+						<td class="txtBox" id="45"></td>
+					</tr>
+					<tr>
+						<td class="txtBox" id="52"></td>
+						<td class="txtBox" id="53"></td>
+						<td class="txtBox" id="54"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td class="txtBox" id="55"></td>
+						<td class="txtBox" id="56"></td>
+						<td class="txtBox" id="57"></td>
+					</tr>
+					<tr>
+						<td class="txtBox" id="64"></td>
+						<td class="txtBox" id="65"></td>
+						<td class="txtBox" id="66"></td>
+					</tr>
+					<tr>
+						<td class="txtBox" id="73"></td>
+						<td class="txtBox" id="74"></td>
+						<td class="txtBox" id="75"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td class="txtBox" id="58"></td>
+						<td class="txtBox" id="59"></td>
+						<td class="txtBox" id="60"></td>
+					</tr>
+					<tr>
+						<td class="txtBox" id="67"></td>
+						<td class="txtBox" id="68"></td>
+						<td class="txtBox" id="69"></td>
+					</tr>
+					<tr>
+						<td class="txtBox" id="76"></td>
+						<td class="txtBox" id="77"></td>
+						<td class="txtBox" id="78"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td class="txtBox" id="61"></td>
+						<td class="txtBox" id="62"></td>
+						<td class="txtBox" id="63"></td>
+					</tr>
+					<tr>
+						<td class="txtBox" id="70"></td>
+						<td class="txtBox" id="71"></td>
+						<td class="txtBox" id="72"></td>
+					</tr>
+					<tr>
+						<td class="txtBox" id="79"></td>
+						<td class="txtBox" id="80"></td>
+						<td class="txtBox" id="81"></td>
 					</tr>
 				</table>
 			</td>
 		</tr>
 	</table>
-	<a class="num selected">1</a><a class="num">2</a><a class="num">3</a>
+	<a class="num selected first">1</a><a class="num">2</a><a class="num">3</a>
 	<a class="num">4</a><a class="num">5</a><a class="num">6</a>
-	<a class="num">7</a><a class="num">8</a><a class="num">9</a>
+	<a class="num">7</a><a class="num">8</a><a class="num">9</a><a class="num">&nbsp;</a>
 	<br/>
-	<a class="button" id="solveit">Solve It!</a>
+	<a class="button first" id="check">Check</a><a class="button" id="solveit">Solve It!</a><a class="button" id="newPuzzle">Random Puzzle</a><a class="button" id="inputPuzzle">Input Puzzle</a><a class="button hidden danger" id="clear">Clear Grid</a>
 	</div>
 	</div>
 <script src="jquery-2.1.1.min.js"></script>
