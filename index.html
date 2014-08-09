@@ -51,6 +51,7 @@
 		margin-right:3px;
 		font-size: 15px;
 		font-weight: 600;
+		color:#000;
 	}
 	.button:hover {
 		background-color: #235578;
@@ -63,6 +64,7 @@
 		line-height: 40px;
 		cursor: pointer;
 		border: solid 1px;
+		color:#000;
 	}
 	.selected {
 		background-color: #995698;
@@ -88,10 +90,14 @@
 		
 	}
 	
+	#controls {
+		text-align: center;
+	}
+	
    </style>
 </head>
 <body>
-	<h1>Solve-it Sudoku <span id="proNum"></span></h1>
+	<h1>Solve-it Sudoku</h1>
 	<div id="container">
 	<div id="main">
 	<table>
@@ -273,11 +279,13 @@
 			</td>
 		</tr>
 	</table>
-	<a class="num selected first">1</a><a class="num">2</a><a class="num">3</a>
-	<a class="num">4</a><a class="num">5</a><a class="num">6</a>
-	<a class="num">7</a><a class="num">8</a><a class="num">9</a><a class="num">&nbsp;</a>
-	<br/>
-	<a class="button first" id="check">Check Answers</a><a class="button" id="solveit">Solve Puzzle</a><br/><a class="button first" id="newPuzzle">Random Puzzle </a><a class="button" id="inputPuzzle">Input Puzzle</a><a class="button hidden danger" id="clear">Clear Grid</a>
+	<div id="controls">
+		<a class="num selected">1</a><a class="num">2</a><a class="num">3</a>
+		<a class="num">4</a><a class="num">5</a><a class="num">6</a>
+		<a class="num">7</a><a class="num">8</a><a class="num">9</a><a class="num">&nbsp;</a>
+		<br/>
+		<a class="button" id="check">Check Answers</a><a class="button" id="solveit">Solve Puzzle</a><br/><a class="button first" id="newPuzzle">Random Puzzle </a><a class="button" id="inputPuzzle">Input Puzzle</a><a class="button hidden danger" id="clear">Clear Grid</a>
+	</div>
 	</div>
 	</div>
 <script src="jquery-2.1.1.min.js"></script>
