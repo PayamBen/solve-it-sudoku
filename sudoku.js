@@ -351,8 +351,7 @@ $(function() {
 					$(this).show();
 				}
 			}); // end each
-			
-			return
+			return;
 		}
 		resetBorderColor();
 		$('#proNum').text("");
