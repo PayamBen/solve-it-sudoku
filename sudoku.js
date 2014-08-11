@@ -274,26 +274,33 @@ $(function() {
 	$('.txtBox').click(function() {
 		if ($(this).hasClass('changeable') || $('#inputPuzzle').hasClass('largeButton')) {
 				
-			
+			console.log('one');
 			if ($('.selected').html() == '&nbsp;') {
 				$(this).html('&nbsp;');
 				$(this).removeClass('wrongAnswer');
 				return
 			}
+			console.log('two');
 			var num = parseInt($('.selected').text());
 			$(this).removeClass('wrongAnswer');
 			$(this).text(num);
-			if (answer.length <= 0) {
-				var grid = makeArray();
-				solve(grid, 0);
-			}
-			if (puzzleComplete(answer) > 0) {
-				if (quitPuzzle) {
-					alert("Finished, however you requested the solution during the game");
+			console.log('three');
+			if (!$('#inputPuzzle').hasClass('largeButton'))
+			{
+				if (answer.length <= 0) {
+					var grid = makeArray();
+					solve(grid, 0);
 				}
-				else {
-					alert("Puzzle Correctly Finished!");
+				console.log('four');
+				if (puzzleComplete(answer) > 0) {
+					if (quitPuzzle) {
+						alert("Finished, however you requested the solution during the game");
+					}
+					else {
+						alert("Puzzle Correctly Finished!");
+					}
 				}
+				console.log('five');
 			}
 			
 		}
@@ -353,6 +360,8 @@ $(function() {
 					$(this).show();
 				}
 			}); // end each
+			answer = [];
+			quitPuzzle = false;
 			return;
 		}
 		resetBorderColor();
