@@ -187,8 +187,8 @@ function loadPuzzle(level)
 {
 	var newPuzzle;
 	var count = 0;
-	//$.get("http://archives.smoothwebs.co.uk/make-puzzle.php?level=" + level, function( data ) {
-	$.get("http://lab/sudoku/make-puzzle.php?level=" + level, function( data ) {
+	$.get("http://archives.smoothwebs.co.uk/make-puzzle.php?level=" + level, function( data ) {
+	//$.get("http://lab/sudoku/make-puzzle.php?level=" + level, function( data ) {
 	
 		console.log(data);
 		newPuzzle = data.split('');
