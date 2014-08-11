@@ -22,6 +22,7 @@
 	#main {
 		width: 320px;
 		margin: auto;
+		position: relative;
 	}
 	table {
 		border: solid 1px;
@@ -57,6 +58,17 @@
 		background-color: #235578;
 	}
 	
+	.button2 {
+		background-color: #114499;
+		margin: 20px 35px;
+		line-height: 40px;
+		cursor: pointer;
+		font-size: 16px;
+		font-weight: 600;
+		color:#000;
+		display: block;
+	}
+	
 	.num {
 		background-color: #eee;
 		padding: 4px 6px;
@@ -71,7 +83,8 @@
 	}
 	
 	.wrongAnswer {
-		border-color: red;
+		color:red;
+		border-color: #000;
 	}
 	
 	.unchangeable {
@@ -93,11 +106,35 @@
 	#controls {
 		text-align: center;
 	}
+	#message {
+		color: red;
+		margin:0 auto;
+		text-align: center;
+		border: dashed 1px;
+		display: none;
+		width:320px;
+	}
+	#popupLayer {
+		position: absolute;
+		display: none;
+		top: 8%;
+		left: 10%;
+		width:280px;
+		background-color: #777;
+	}
+	
+	.tprghtcrnr {
+		float: right;
+		display: block;
+		font-size: 130%;
+		cursor: pointer;
+	}
 	
    </style>
 </head>
 <body>
 	<h1>Solve-it Sudoku</h1>
+	<p id="message"></p>
 	<div id="container">
 	<div id="main">
 	<table>
@@ -284,7 +321,15 @@
 		<a class="num">4</a><a class="num">5</a><a class="num">6</a>
 		<a class="num">7</a><a class="num">8</a><a class="num">9</a><a class="num">&nbsp;</a>
 		<br/>
-		<a class="button" id="check">Check Answers</a><a class="button" id="solveit">Solve Puzzle</a><br/><a class="button first" id="newPuzzle">Random Puzzle </a><a class="button" id="inputPuzzle">Input Puzzle</a><a class="button hidden danger" id="clear">Clear Grid</a>
+		<a class="button" id="check">Check Answers</a><a class="button" id="solveit">Solve Puzzle</a><br/><a class="button first" id="newPuzzle">New Puzzle </a><a class="button" id="inputPuzzle">Input Puzzle</a>
+		
+		<a class="button hidden danger" id="clear">Clear Grid</a>
+	<div id="popupLayer">
+		<a class="tprghtcrnr" id="close">X</a>
+		<a class="button2" id="newPuzzle2">Easy Puzzle </a>
+		<a class="button2" id="newPuzzle3">Medium Puzzle </a>
+		<a class="button2" id="newPuzzle4">Hard Puzzle </a>
+	</div>
 	</div>
 	</div>
 	</div>
