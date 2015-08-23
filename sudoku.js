@@ -188,7 +188,7 @@ function loadPuzzle(level)
 	var newPuzzle;
 	var count = 0;
 	$('#container').css('cursor','wait');
-	$.get("http://archives.smoothwebs.co.uk/make-puzzle.php?level=" + level, function( data ) {
+	$.get("http://mibz.uk/api/make-puzzle.php?level=" + level, function( data ) {
 	//$.get("http://lab/sudoku/make-puzzle.php?level=" + level, function( data ) {
 	
 		console.log(data);
